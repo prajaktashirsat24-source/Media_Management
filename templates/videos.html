@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Videos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+            margin-bottom: 30px;
+        }
+
+        .top-buttons {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: white;
+            margin-right: 8px;
+        }
+
+        .add {
+            background: #1f3c88;
+        }
+
+        .dashboard {
+            background: #6c757d;
+        }
+
+        .video-card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .video-card h2 {
+            color: #1f3c88;
+            margin-top: 0;
+        }
+
+        .video-card p {
+            color: #555;
+        }
+
+        .video-link {
+            color: #1f3c88;
+            word-break: break-all;
+        }
+
+        .delete {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 9px 15px;
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Manage Videos</h1>
+
+    <div class="top-buttons">
+
+        <a href="/add-video" class="btn add">
+            + Add Video
+        </a>
+
+        <a href="/dashboard" class="btn dashboard">
+            Dashboard
+        </a>
+
+    </div>
+
+    {% if videos %}
+
+        {% for video in videos %}
+
+        <div class="video-card">
+
+            <h2>Video {{ loop.index }}</h2>
+
+            <p>
+                <strong>Description:</strong>
+                {{ video[2] or "No description available" }}
+            </p>
+
+            <p>
+                <strong>Video URL:</strong><br>
+                <a href="{{ video[1] }}"
+                   target="_blank"
+                   class="video-link">
+                    {{ video[1] }}
+                </a>
+            </p>
+
+            <a href="/delete-video/{{ video[0] }}"
+               class="delete"
+               onclick="return confirm('Are you sure you want to delete this video?');">
+                Delete
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="video-card">
+            <p>No videos available.</p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Press Release</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+        }
+
+        .header {
+            background: #1f3c88;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1f3c88;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1f3c88;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        button,
+        .back-btn {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button {
+            background: #1f3c88;
+            color: white;
+        }
+
+        .back-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Media Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h2>Edit Press Release</h2>
+
+            <form method="POST">
+
+                <label for="title">Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value="{{ release[1] }}"
+                    required
+                >
+
+
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    required
+                >{{ release[2] }}</textarea>
+
+
+                <label for="release_date">Release Date</label>
+
+                <input
+                    type="date"
+                    id="release_date"
+                    name="release_date"
+                    value="{{ release[3] }}"
+                    required
+                >
+
+
+                <div class="buttons">
+
+                    <button type="submit">
+                        Update Press Release
+                    </button>
+
+                    <a href="/press-releases" class="back-btn">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

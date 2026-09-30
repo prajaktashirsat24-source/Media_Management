@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Press Release</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+        }
+
+        .header {
+            background: #1f3c88;
+            color: white;
+            padding: 20px 40px;
+        }
+
+        .header h1 {
+            font-size: 25px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-card h2 {
+            color: #1f3c88;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1f3c88;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        button,
+        .back-btn {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        button {
+            background: #1f3c88;
+            color: white;
+        }
+
+        button:hover {
+            background: #162d68;
+        }
+
+        .back-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .back-btn:hover {
+            background: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Media Management System</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h2>Add New Press Release</h2>
+
+            <form method="POST" action="/add-press-release">
+
+                <label for="title">Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Enter press release title"
+                    required
+                >
+
+
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Enter press release description"
+                    required
+                ></textarea>
+
+
+                <label for="release_date">Release Date</label>
+
+                <input
+                    type="date"
+                    id="release_date"
+                    name="release_date"
+                    required
+                >
+
+
+                <div class="buttons">
+
+                    <button type="submit">
+                        Add Press Release
+                    </button>
+
+                    <a href="/dashboard" class="back-btn">
+                        Back to Dashboard
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

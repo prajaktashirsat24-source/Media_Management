@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Media | NGO</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #1f3c88;
+            color: white;
+            padding: 25px 8%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1f3c88;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+        }
+
+        /* Main */
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .intro h2 {
+            color: #1f3c88;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            max-width: 750px;
+            margin: auto;
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 55px;
+        }
+
+        .section-title {
+            color: #1f3c88;
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-left: 5px solid #e67e22;
+            padding-left: 12px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .card h3 {
+            color: #1f3c88;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .date {
+            color: #e67e22;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #1f3c88;
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 7px;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-card p {
+            padding: 15px;
+            color: #666;
+        }
+
+        /* Videos */
+        .video-card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .video-card h3 {
+            color: #1f3c88;
+            margin-bottom: 10px;
+        }
+
+        .video-card p {
+            color: #666;
+        }
+
+        .video-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #1f3c88;
+            font-weight: bold;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        /* Contact */
+        .contact {
+            background: #1f3c88;
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Empty message */
+        .empty {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            color: #777;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #162d68;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>NGO Media Center</h1>
+
+        <p>
+            News, Updates, Events and Stories
+        </p>
+
+    </header>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="#about">About</a>
+
+        <a href="#press">Press Releases</a>
+
+        <a href="#coverage">Media Coverage</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#videos">Videos</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <!-- Introduction -->
+
+        <section class="intro" id="about">
+
+            <h2>Welcome to Our Media Center</h2>
+
+            <p>
+                Stay updated with the latest activities, achievements,
+                announcements and initiatives of our NGO. Explore our
+                press releases, media coverage, image gallery and videos.
+            </p>
+
+        </section>
+
+
+
+        <!-- Press Releases -->
+
+        <section class="section" id="press">
+
+            <h2 class="section-title">
+                Press Releases
+            </h2>
+
+            {% if releases %}
+
+            <div class="cards">
+
+                {% for release in releases %}
+
+                <div class="card">
+
+                    <div class="date">
+                        {{ release[3] }}
+                    </div>
+
+                    <h3>
+                        {{ release[1] }}
+                    </h3>
+
+                    <p>
+                        {{ release[2] }}
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty">
+                No press releases available at the moment.
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+
+        <!-- Media Coverage -->
+
+        <section class="section" id="coverage">
+
+            <h2 class="section-title">
+                Media Coverage
+            </h2>
+
+            {% if coverages %}
+
+            <div class="cards">
+
+                {% for coverage in coverages %}
+
+                <div class="card">
+
+                    <h3>
+                        {{ coverage[1] }}
+                    </h3>
+
+                    <p>
+                        Explore the latest media coverage related
+                        to our NGO activities.
+                    </p>
+
+                    <a href="{{ coverage[2] }}"
+                       target="_blank"
+                       class="read-btn">
+
+                        Read Article
+
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty">
+                No media coverage available at the moment.
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+
+        <!-- Image Gallery -->
+
+        <section class="section" id="gallery">
+
+            <h2 class="section-title">
+                Image Gallery
+            </h2>
+
+            {% if images %}
+
+            <div class="gallery">
+
+                {% for image in images %}
+
+                <div class="gallery-card">
+
+                    <img
+                        src="{{ url_for('uploaded_file', filename=image[1].replace('\\', '/').replace('uploads/', '', 1)) }}"
+                        alt="{{ image[2] or 'NGO Gallery Image' }}"
+                    >
+
+                    <p>
+                        {{ image[2] or "NGO Activity" }}
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty">
+                No images available at the moment.
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+
+        <!-- Videos -->
+
+        <section class="section" id="videos">
+
+            <h2 class="section-title">
+                Videos
+            </h2>
+
+            {% if videos %}
+
+            {% for video in videos %}
+
+            <div class="video-card">
+
+                <h3>
+                    🎥 {{ video[2] or "NGO Video" }}
+                </h3>
+
+                <p>
+                    Watch our latest NGO activities and initiatives.
+                </p>
+
+                <a href="{{ video[1] }}"
+                   target="_blank"
+                   class="video-link">
+
+                    ▶ Watch Video
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+            {% else %}
+
+            <div class="empty">
+                No videos available at the moment.
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+
+        <!-- Contact -->
+
+        <section class="section" id="contact">
+
+            <div class="contact">
+
+                <h2>
+                    Contact for Media
+                </h2>
+
+                <p>
+                    For media enquiries, interviews and press-related
+                    information, please contact our NGO media team.
+                </p>
+
+                <p>
+                    📧 Email: media@example.org
+                </p>
+
+                <p>
+                    📞 Phone: +91 XXXXX XXXXX
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 NGO Media Center. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 900px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+            margin-bottom: 30px;
+        }
+
+        .top-buttons {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: white;
+            margin-right: 8px;
+        }
+
+        .add {
+            background: #198754;
+        }
+
+        .dashboard {
+            background: #1f3c88;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card p {
+            color: #444;
+            margin-top: 12px;
+        }
+
+        .delete {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            padding: 8px 13px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .empty {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Image Gallery</h1>
+
+    <div class="top-buttons">
+
+        <a href="/add-image" class="btn add">
+            + Add Image
+        </a>
+
+        <a href="/dashboard" class="btn dashboard">
+            Dashboard
+        </a>
+
+    </div>
+
+    {% if images %}
+
+    <div class="gallery">
+
+        {% for image in images %}
+
+        <div class="card">
+
+            <img src="{{ url_for('uploaded_file', filename=image[1].replace('\\', '/').replace('uploads/', '', 1)) }}"
+                    alt="{{ image[2] or 'Gallery Image' }}"
+                    style="width:100%; height:220px; object-fit:cover; border-radius:10px;">
+
+            <p>
+                <strong>Description:</strong><br>
+                {{ image[2] or 'No description available' }}
+            </p>
+
+            <a href="/delete-image/{{ image[0] }}"
+               class="delete"
+               onclick="return confirm('Are you sure you want to delete this image?');">
+                Delete
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty">
+        <p>No images available in the gallery.</p>
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
